@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ArmLink — NERO arm control</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">ArmLink / NERO control surface</p>
+          <h1>To my right.</h1>
+          <p class="lede">A live, network-ready joint control prototype for the AgileX NERO arm.</p>
+        </div>
+        <div class="status" id="status" data-state="mock">
+          <span class="status-dot"></span>
+          <span>Mock mode</span>
+        </div>
+      </header>
+
+      <section class="notice">
+        <strong>Hardware is disabled.</strong>
+        This prototype updates a mock API only. No arm movement commands are sent.
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Live joint targets</p>
+            <h2>Move the sliders</h2>
+          </div>
+          <button id="reset" class="button secondary" type="button">Reset</button>
+        </div>
+        <div id="sliders" class="sliders"></div>
+      </section>
+
+      <section class="panel output-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">API output</p>
+            <h2>Current command payload</h2>
+          </div>
+          <span id="request-state" class="request-state">Ready</span>
+        </div>
+        <pre id="output" aria-live="polite"></pre>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

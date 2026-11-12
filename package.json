@@ -1,0 +1,10 @@
+{
+  "name": "armlink",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A safety-first web control surface for the AgileX NERO arm.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
