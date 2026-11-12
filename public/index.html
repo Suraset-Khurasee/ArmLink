@@ -8,40 +8,26 @@
   </head>
   <body>
     <main class="shell">
-      <header class="hero">
-        <div>
-          <p class="eyebrow">ArmLink / NERO control surface</p>
-          <h1>To my right.</h1>
-          <p class="lede">A live, network-ready joint control prototype for the AgileX NERO arm.</p>
-        </div>
-        <div class="status" id="status" data-state="mock">
-          <span class="status-dot"></span>
-          <span>Mock mode</span>
-        </div>
+      <header class="header">
+        <h1>ArmLink</h1>
+        <span id="status">Mock mode</span>
       </header>
 
       <section class="notice">
-        <strong>Hardware is disabled.</strong>
-        This prototype updates a mock API only. No arm movement commands are sent.
+        Hardware disabled. Slider changes update the mock API only.
       </section>
 
       <section class="panel">
         <div class="panel-heading">
-          <div>
-            <p class="eyebrow">Live joint targets</p>
-            <h2>Move the sliders</h2>
-          </div>
-          <button id="reset" class="button secondary" type="button">Reset</button>
+          <h2>Motor positions</h2>
+          <button id="reset" type="button">Reset</button>
         </div>
         <div id="sliders" class="sliders"></div>
       </section>
 
       <section class="panel output-panel">
         <div class="panel-heading">
-          <div>
-            <p class="eyebrow">API output</p>
-            <h2>Current command payload</h2>
-          </div>
+          <h2>API output</h2>
           <span id="request-state" class="request-state">Ready</span>
         </div>
         <pre id="output" aria-live="polite"></pre>

@@ -4,24 +4,27 @@ const requestState = document.querySelector("#request-state");
 const reset = document.querySelector("#reset");
 const status = document.querySelector("#status");
 
-const joints = [
-  { name: "Joint 1", description: "Base rotation" },
-  { name: "Joint 2", description: "Shoulder" },
-  { name: "Joint 3", description: "Elbow" },
-  { name: "Joint 4", description: "Wrist" }
+const motors = [
+  "Base",
+  "Shoulder",
+  "Upper arm",
+  "Elbow",
+  "Forearm",
+  "Wrist pitch",
+  "Wrist roll"
 ];
 
-let values = [0, 0, 0, 0];
+let values = Array(motors.length).fill(0);
 let updateTimer;
 
 function render() {
-  sliderRoot.innerHTML = joints.map((joint, index) => `
+  sliderRoot.innerHTML = motors.map((motor, index) => `
     <label class="joint">
       <span class="joint-label">
-        <span><strong>${joint.name}</strong><small>${joint.description}</small></span>
+        <span><strong>Motor ${index + 1}</strong><small>${motor}</small></span>
         <output id="value-${index}">${values[index]}°</output>
       </span>
-      <input data-index="${index}" type="range" min="-180" max="180" step="1" value="${values[index]}" aria-label="${joint.name}">
+      <input data-index="${index}" type="range" min="-180" max="180" step="1" value="${values[index]}" aria-label="Motor ${index + 1} ${motor}">
       <span class="range-labels"><span>-180°</span><span>0°</span><span>180°</span></span>
     </label>
   `).join("");
@@ -69,11 +72,10 @@ function scheduleUpdate() {
 }
 
 reset.addEventListener("click", () => {
-  values = [0, 0, 0, 0];
+  values = Array(motors.length).fill(0);
   render();
   scheduleUpdate();
 });
 
 render();
 showOutput();
-status.title = "Hardware integration is disabled";

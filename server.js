@@ -59,8 +59,8 @@ const server = createServer(async (request, response) => {
   if (url.pathname === "/api/joints" && request.method === "POST") {
     try {
       const payload = await readJson(request);
-      if (!Array.isArray(payload.joints) || payload.joints.length !== 4) {
-        sendJson(response, 400, { error: "joints must contain four numeric values" });
+      if (!Array.isArray(payload.joints) || payload.joints.length !== 7) {
+        sendJson(response, 400, { error: "joints must contain seven numeric values" });
         return;
       }
 
